@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="690.0" minWidth="530.0" prefHeight="690.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ascii_paint.controller.ChoiceController">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" height="925.0" layoutX="-3.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1749.0" AnchorPane.bottomAnchor="-235.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1219.0" AnchorPane.topAnchor="0.0">
+       <fill>
+           <LinearGradient>
+               <stops>
+                   <Stop color="#0f2027" />
+                   <Stop color="#203a43" offset="0.5" />
+                   <Stop color="#2c5364" offset="1" />
+               </stops>
+           </LinearGradient>
+       </fill>
+   </Rectangle>
+    <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="40">
+        <Label text="Добро пожаловать в ASCII-Painter!" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="24.0" />
+            </font>
+            <effect>
+                <DropShadow color="#00000080" offsetX="2" offsetY="2" radius="5" />
+            </effect>
+        </Label>
+
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 10; -fx-padding: 20;">
+            <HBox prefHeight="30.0" prefWidth="390.0" spacing="10.0">
+                <Label text="Изображение:" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="16.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="status_lbl" alignment="TOP_CENTER" prefHeight="16.0" prefWidth="264.0" style="-fx-font-style: italic;" text="Не определено" textFill="#FF3F38">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets top="3.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <Button onAction="#selectFile" style="-fx-base: #3498db; -fx-text-fill: white;" text="Выбрать в системе">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </Button>
+        </VBox>
+
+        <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 10; -fx-padding: 20;">
+            <Label text="Название файла:" textFill="WHITE">
+                <font>
+                    <Font name="Arial" size="16.0" />
+                </font>
+            </Label>
+            <TextField fx:id="outputFileName" promptText="Введите название файла" style="-fx-background-radius: 5;">
+                <tooltip>
+                    <Tooltip text="Введите название файла" />
+                </tooltip>
+            </TextField>
+
+        </VBox>
+
+        <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 10; -fx-padding: 20;">
+            <HBox prefHeight="2.0" prefWidth="390.0" spacing="15.0">
+                <Label text="Качество прорисовки:" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="16.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="qualityChoice" prefHeight="26.0" prefWidth="186.0" style="-fx-background-radius: 5;" value="Базовый">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Базовый" />
+                            <String fx:value="Детальный" />
+                        </FXCollections>
+                    </items>
+
+                    <tooltip>
+                        <Tooltip text="Выберете мощность алфавита" />
+                    </tooltip>
+                </ChoiceBox>
+            </HBox>
+        </VBox>
+
+        <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 10; -fx-padding: 20;">
+            <Label text="Длина (символов):" textFill="WHITE">
+                <font>
+                    <Font name="Arial" size="16.0" />
+                </font>
+            </Label>
+            <TextField fx:id="lengthInput" promptText="Введите длину" style="-fx-background-radius: 5;">
+                <tooltip>
+                    <Tooltip text="Количество символов по ширине" />
+                </tooltip>
+            </TextField>
+        </VBox>
+
+        <Button onAction="#convert" prefHeight="80.0" prefWidth="250.0" style="-fx-base: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5;" text="КОНВЕРТИРОВАТЬ">
+            <font>
+                <Font name="Arial Bold" size="18.0" />
+            </font>
+            <effect>
+                <DropShadow color="#00000060" offsetX="3" offsetY="3" />
+            </effect>
+        </Button>
+    </VBox>
+</AnchorPane>

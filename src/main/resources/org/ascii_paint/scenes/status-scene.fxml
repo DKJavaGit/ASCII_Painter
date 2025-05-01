@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ascii_paint.controller.StatusController">
+    <Rectangle fill="linear-gradient(to bottom right, #f5f7fa 0%, #c3cfe2 100%)" height="520.0" width="400"/>
+
+    <Circle fill="radial-gradient(center 50% 50%, radius 80%, rgba(46,204,113,0.1), transparent)" layoutX="300"
+            layoutY="100" radius="80"/>
+    <Circle fill="radial-gradient(center 50% 50%, radius 60%, rgba(52,152,219,0.1), transparent)" layoutX="50"
+            layoutY="400" radius="60"/>
+
+    <VBox alignment="CENTER" layoutX="50" layoutY="50" prefWidth="300" spacing="20">
+        <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+            <effect>
+                <DropShadow color="#2ecc71" radius="15" spread="0.2"/>
+            </effect>
+            <Image url="@../images/Galka.png"/>
+        </ImageView>
+
+        <Label style="-fx-text-fill: #2ecc71;" text="Успех!">
+            <font>
+                <Font name="Montserrat Bold" size="28.0"/>
+            </font>
+            <effect>
+                <Glow/>
+            </effect>
+        </Label>
+
+        <Label style="-fx-text-fill: #34495e;" text="Изображение успешно сконвертировано" textAlignment="CENTER"
+               wrapText="true">
+            <font>
+                <Font name="Open Sans" size="14.0"/>
+            </font>
+        </Label>
+
+        <VBox alignment="CENTER" spacing="5"
+              style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;">
+            <Label style="-fx-text-fill: #7f8c8d; -fx-font-weight: bold;" text="Детали операции:"/>
+            <Label fx:id="name_lbl" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="293.0"
+                   style="-fx-text-fill: #34495e;" text="Имя файла:"/>
+            <Label fx:id="place_lbl" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="295.0"
+                   style="-fx-text-fill: #34495e;" text="Расположение:"/>
+            <Label fx:id="time_lbl" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="278.0"
+                   style="-fx-text-fill: #34495e;" text="Время: "/>
+            <Label fx:id="format_lbl" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="285.0"
+                   style="-fx-text-fill: #34495e;" text="Формат: "/>
+            <Label fx:id="size_lbl" alignment="TOP_CENTER" prefHeight="17.0" prefWidth="289.0"
+                   style="-fx-text-fill: #34495e;" text="Размер: "/>
+        </VBox>
+
+        <Button onAction="#close" prefHeight="27.0" prefWidth="121.0"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 20;"
+                text="Продолжить">
+            <font>
+                <Font name="Open Sans SemiBold" size="14.0"/>
+            </font>
+            <effect>
+                <DropShadow color="rgba(46,204,113,0.5)" radius="5" spread="0.2"/>
+            </effect>
+        </Button>
+    </VBox>
+</AnchorPane>
